@@ -94,6 +94,20 @@
     });
   }
 
+  function formatPhoneNumber(value) {
+    const digits = value.replace(/\D/g, '').slice(0, 10);
+    if (digits.length < 4) return digits;
+    if (digits.length < 7) return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+    return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+
+  function initPhoneFormatting() {
+    const phoneEl = document.getElementById('input-phone');
+    phoneEl.addEventListener('input', () => {
+      phoneEl.value = formatPhoneNumber(phoneEl.value);
+    });
+  }
+
   function initStep2() {
     const btn = document.querySelector('[data-step="2"] .funnel-continue');
     const input = document.getElementById('input-company');
@@ -123,7 +137,7 @@
         markError(emailEl, 'error-email');
         ok = false;
       }
-      if (!phoneEl.value.trim()) {
+      if (phoneEl.value.replace(/\D/g, '').length !== 10) {
         markError(phoneEl, 'error-phone');
         ok = false;
       }
@@ -189,6 +203,7 @@
     initOptions();
     initStep2();
     initStep3();
+    initPhoneFormatting();
     initBackButtons();
     setStep(1);
   })();

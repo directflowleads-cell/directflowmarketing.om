@@ -151,6 +151,33 @@
     }
   }
 
+  function animateNumberTo(el, toValue, formatFn, duration = 350) {
+    const fromValue = el.__animCurrent ?? toValue;
+
+    if (prefersReducedMotion || fromValue === toValue) {
+      el.textContent = formatFn(toValue);
+      el.__animCurrent = toValue;
+      return;
+    }
+
+    if (el.__animFrame) cancelAnimationFrame(el.__animFrame);
+    const start = performance.now();
+
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = fromValue + (toValue - fromValue) * eased;
+      el.textContent = formatFn(value);
+      if (progress < 1) {
+        el.__animFrame = requestAnimationFrame(frame);
+      } else {
+        el.__animCurrent = toValue;
+      }
+    }
+    el.__animFrame = requestAnimationFrame(frame);
+  }
+
   /* ---------------- ROI Calculator ---------------- */
 
   // Tunable assumptions — adjust these as real performance data comes in.
@@ -187,9 +214,9 @@
       const closedJobsPerMonth = appointments * (closeRatePct / 100);
       const projectedRevenue = closedJobsPerMonth * CALC_ASSUMPTIONS.avgJobValue;
 
-      outJobsEl.textContent = closedJobsPerMonth.toFixed(1);
-      outRevenueEl.textContent = currency(projectedRevenue);
-      outJobsClosingEl.textContent = closedJobsPerMonth.toFixed(1);
+      animateNumberTo(outRevenueEl, projectedRevenue, currency);
+      animateNumberTo(outJobsEl, closedJobsPerMonth, (v) => v.toFixed(1));
+      animateNumberTo(outJobsClosingEl, closedJobsPerMonth, (v) => v.toFixed(1));
 
       setSliderFill(appointmentsInput);
       setSliderFill(closeRateInput);
