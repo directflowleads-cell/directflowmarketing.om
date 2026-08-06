@@ -45,7 +45,7 @@
 
     <!-- ---- Step 1: Volume (branches the calendar link shown at step 4) ---- -->
     <section class="funnel-step is-active" data-step="1">
-      <h2 class="funnel-question" data-key="booking.step1Question">How many Kitchen/Bath jobs do you do per month?</h2>
+      <h2 class="funnel-question" data-key="booking.step1Question">How many remodeling projects do you do per month?</h2>
       <div class="funnel-options">
         <button type="button" class="funnel-option" data-volume="low"><span data-key="booking.step1OptionA">Less than 5</span></button>
         <button type="button" class="funnel-option" data-volume="standard"><span data-key="booking.step1OptionB">5-15</span></button>
@@ -58,6 +58,7 @@
     <section class="funnel-step" data-step="2" hidden>
       <h2 class="funnel-question" data-key="booking.step2Question">What's your company name?</h2>
       <input type="text" class="funnel-input" id="input-company" placeholder="Your company name" autocomplete="organization">
+      <span class="funnel-error-msg" id="error-company">⚠ Please enter your company name</span>
       <div class="funnel-actions">
         <button type="button" class="btn btn--primary btn--large funnel-continue">
           <span data-key="booking.continueText">Continue</span> <span aria-hidden="true">→</span>
@@ -72,12 +73,15 @@
 
       <label class="funnel-label" for="input-name" data-key="booking.step3NameLabel">Full name</label>
       <input type="text" class="funnel-input" id="input-name" placeholder="Jane Doe" autocomplete="name">
+      <span class="funnel-error-msg" id="error-name">⚠ Please enter your name</span>
 
       <label class="funnel-label" for="input-email" data-key="booking.step3EmailLabel">Email</label>
       <input type="email" class="funnel-input" id="input-email" placeholder="jane@company.com" autocomplete="email">
+      <span class="funnel-error-msg" id="error-email">⚠ Please enter a valid email</span>
 
       <label class="funnel-label" for="input-phone" data-key="booking.step3PhoneLabel">Phone</label>
       <input type="tel" class="funnel-input" id="input-phone" placeholder="(555) 123-4567" autocomplete="tel">
+      <span class="funnel-error-msg" id="error-phone">⚠ Please enter your phone number</span>
 
       <div class="funnel-actions">
         <button type="button" class="btn btn--primary btn--large funnel-continue" id="book-call-btn">

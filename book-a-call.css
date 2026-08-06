@@ -172,6 +172,27 @@
 
 .funnel-input--error {
   border-color: #C0392B;
+  border-width: 2px;
+  background: rgba(192, 57, 43, 0.06);
+}
+
+.funnel-input--error:focus {
+  outline-color: #C0392B;
+  border-color: #C0392B;
+}
+
+.funnel-error-msg {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  color: #C0392B;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.funnel-error-msg.is-visible {
+  display: flex;
 }
 
 .funnel-actions {
@@ -187,14 +208,15 @@
 }
 
 .funnel-back {
-  display: block;
-  margin: 18px auto 0;
+  display: inline-block;
+  margin: 20px 0 0;
   background: none;
   border: none;
+  padding: 0;
   color: var(--text-muted);
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   cursor: pointer;
 }
 

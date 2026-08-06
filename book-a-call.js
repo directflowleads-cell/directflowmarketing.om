@@ -13,7 +13,7 @@
 
   // Cosmetic query params matching the brand palette, appended to whichever
   // base URL is active so the embedded widget always matches the site.
-  const CALENDLY_STYLE_PARAMS = 'background_color=fbf9f6&text_color=17181a&primary_color=bf9030';
+  const CALENDLY_STYLE_PARAMS = 'background_color=ffffff&text_color=17181a&primary_color=bf9030';
 
   function setStep(n) {
     document.querySelectorAll('.funnel-step').forEach((el) => {
@@ -67,12 +67,16 @@
     });
   }
 
-  function markError(el) {
+  function markError(el, msgId) {
     el.classList.add('funnel-input--error');
+    const msgEl = msgId ? document.getElementById(msgId) : null;
+    if (msgEl) msgEl.classList.add('is-visible');
+
     el.addEventListener(
       'input',
       function clear() {
         el.classList.remove('funnel-input--error');
+        if (msgEl) msgEl.classList.remove('is-visible');
         el.removeEventListener('input', clear);
       },
       { once: true }
@@ -95,7 +99,7 @@
     const input = document.getElementById('input-company');
     btn.addEventListener('click', () => {
       if (!input.value.trim()) {
-        markError(input);
+        markError(input, 'error-company');
         input.focus();
         return;
       }
@@ -112,15 +116,15 @@
     btn.addEventListener('click', () => {
       let ok = true;
       if (!nameEl.value.trim()) {
-        markError(nameEl);
+        markError(nameEl, 'error-name');
         ok = false;
       }
       if (!emailEl.value.trim() || !emailEl.value.includes('@')) {
-        markError(emailEl);
+        markError(emailEl, 'error-email');
         ok = false;
       }
       if (!phoneEl.value.trim()) {
-        markError(phoneEl);
+        markError(phoneEl, 'error-phone');
         ok = false;
       }
       if (!ok) return;
