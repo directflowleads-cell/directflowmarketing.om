@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direct Flow Marketing — See If Your Market Is Available</title>
+<meta name="description" content="See if your market is still available. Answer a few quick questions and book a call with Direct Flow Marketing.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="book-a-call.css">
+</head>
+<body class="funnel-body">
+
+<a class="skip-link" href="#funnel-card">Skip to content</a>
+
+<header class="funnel-header">
+  <a href="index.html" class="logo" aria-label="Direct Flow Marketing — home">
+    <img class="logo__image" src="assets/logo.png" alt="Direct Flow Marketing">
+  </a>
+</header>
+
+<main class="funnel-main">
+  <div class="funnel-card" id="funnel-card">
+
+    <div class="funnel-card__head">
+      <h1 class="funnel-heading">
+        <span data-key="booking.headingLine1">See If Your Market Is</span>
+        <span class="funnel-heading-accent" data-key="booking.headingAccent">Available</span>
+      </h1>
+      <p class="funnel-subhead" data-key="booking.subhead">We only work with 1 contractor per market — answer a few quick questions below.</p>
+    </div>
+
+    <div class="funnel-progress">
+      <div class="funnel-progress__meta">
+        <span id="step-label">Step 1 of 4</span>
+        <span id="step-pct">25%</span>
+      </div>
+      <div class="funnel-progress__track">
+        <div class="funnel-progress__fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- ---- Step 1: Volume (branches the calendar link shown at step 4) ---- -->
+    <section class="funnel-step is-active" data-step="1">
+      <h2 class="funnel-question" data-key="booking.step1Question">How many Kitchen/Bath jobs do you do per month?</h2>
+      <div class="funnel-options">
+        <button type="button" class="funnel-option" data-volume="low"><span data-key="booking.step1OptionA">Less than 5</span></button>
+        <button type="button" class="funnel-option" data-volume="standard"><span data-key="booking.step1OptionB">5-15</span></button>
+        <button type="button" class="funnel-option" data-volume="standard"><span data-key="booking.step1OptionC">15-30</span></button>
+        <button type="button" class="funnel-option" data-volume="standard"><span data-key="booking.step1OptionD">30+</span></button>
+      </div>
+    </section>
+
+    <!-- ---- Step 2: Company name (same for every branch) ---- -->
+    <section class="funnel-step" data-step="2" hidden>
+      <h2 class="funnel-question" data-key="booking.step2Question">What's your company name?</h2>
+      <input type="text" class="funnel-input" id="input-company" placeholder="Your company name" autocomplete="organization">
+      <div class="funnel-actions">
+        <button type="button" class="btn btn--primary btn--large funnel-continue">
+          <span data-key="booking.continueText">Continue</span> <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <button type="button" class="funnel-back" data-prev="1"><span aria-hidden="true">←</span> <span data-key="booking.backText">Back</span></button>
+    </section>
+
+    <!-- ---- Step 3: Contact info (same for every branch) ---- -->
+    <section class="funnel-step" data-step="3" hidden>
+      <h2 class="funnel-question" data-key="booking.step3Question">How can we reach you?</h2>
+
+      <label class="funnel-label" for="input-name" data-key="booking.step3NameLabel">Full name</label>
+      <input type="text" class="funnel-input" id="input-name" placeholder="Jane Doe" autocomplete="name">
+
+      <label class="funnel-label" for="input-email" data-key="booking.step3EmailLabel">Email</label>
+      <input type="email" class="funnel-input" id="input-email" placeholder="jane@company.com" autocomplete="email">
+
+      <label class="funnel-label" for="input-phone" data-key="booking.step3PhoneLabel">Phone</label>
+      <input type="tel" class="funnel-input" id="input-phone" placeholder="(555) 123-4567" autocomplete="tel">
+
+      <div class="funnel-actions">
+        <button type="button" class="btn btn--primary btn--large funnel-continue" id="book-call-btn">
+          <span data-key="booking.bookText">Book My Call</span> <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <button type="button" class="funnel-back" data-prev="2"><span aria-hidden="true">←</span> <span data-key="booking.backText">Back</span></button>
+    </section>
+
+    <!-- ---- Step 4: Calendar — the Calendly widget is initialized by book-a-call.js, using
+         whichever URL matches the step 1 answer (booking.calendarUrlLowVolume /
+         booking.calendarUrlStandard in content.json). ---- -->
+    <section class="funnel-step" data-step="4" hidden>
+      <h2 class="funnel-question" data-key="booking.step4Heading">Pick a time that works for you</h2>
+      <div class="funnel-calendar" id="calendly-embed"></div>
+      <p class="funnel-calendar-fallback">
+        Trouble viewing the calendar? <a id="calendar-fallback-link" href="#" target="_blank" rel="noopener">Open scheduling page in a new tab</a>.
+      </p>
+    </section>
+
+  </div>
+
+  <!-- ---- Placeholder social proof — swap these for real contractor testimonials ---- -->
+  <section class="funnel-proof" aria-label="What contractors are saying">
+    <p class="eyebrow funnel-proof__eyebrow" data-key="booking.proofEyebrow">What Contractors Are Saying</p>
+    <div class="funnel-proof__grid">
+      <blockquote class="funnel-proof__card">
+        <p class="funnel-proof__quote" data-key="testimonials.items.0.quote">"Honestly I was skeptical at first, but these appointments are the real deal."</p>
+        <footer class="funnel-proof__meta">
+          <span class="funnel-proof__name" data-key="testimonials.items.0.name">Mike Delgado</span>
+          <span class="funnel-proof__shop" data-key="testimonials.items.0.shop">Delgado Kitchen & Bath</span>
+        </footer>
+      </blockquote>
+      <blockquote class="funnel-proof__card">
+        <p class="funnel-proof__quote" data-key="testimonials.items.1.quote">"We used to burn through leads that went nowhere. Now I just show up and close."</p>
+        <footer class="funnel-proof__meta">
+          <span class="funnel-proof__name" data-key="testimonials.items.1.name">Rachel Simmons</span>
+          <span class="funnel-proof__shop" data-key="testimonials.items.1.shop">Simmons Home Renovations</span>
+        </footer>
+      </blockquote>
+      <blockquote class="funnel-proof__card">
+        <p class="funnel-proof__quote" data-key="testimonials.items.2.quote">"No contract, no retainer — three months in and it's paid for itself many times over."</p>
+        <footer class="funnel-proof__meta">
+          <span class="funnel-proof__name" data-key="testimonials.items.2.name">Tony Marchetti</span>
+          <span class="funnel-proof__shop" data-key="testimonials.items.2.shop">Marchetti Remodeling Co.</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+</main>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="book-a-call.js" defer></script>
+</body>
+</html>

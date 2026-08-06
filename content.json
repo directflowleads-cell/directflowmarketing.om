@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "linkHow": "How It Works",
+    "linkResults": "Results",
+    "linkCalculator": "Calculator",
+    "cta": "Get Started"
+  },
+  "hero": {
+    "headlineLine1": "Only Pay For Kitchen & Bath Appointments That",
+    "headlineLine2": "Actually Show Up.",
+    "subhead": "We find, qualify, and book high-intent homeowners who are actively planning a kitchen or bath remodel — real budget, real timeline, a real appointment on your calendar. You just show up, build rapport, and close the job. Zero risk: no retainer, no management fees, no long-term contract, and no ad spend on your end.",
+    "ctaPrimary": "Get Started — No Contract",
+    "ctaSecondary": "See how it works ↓",
+    "trust1": "Exclusive Per Market",
+    "trust2": "Unlimited Free Replacements",
+    "trust3": "Zero Ad Spend On Your End"
+  },
+  "results": {
+    "eyebrow": "Recently Closed",
+    "deals": [
+      { "amount": "$32,000", "desc": "Full Kitchen Remodel — Custom Cabinetry & Quartz", "client": "Heritage Kitchen & Bath" },
+      { "amount": "$12,500", "desc": "Master Bath Remodel — Walk-In Shower Conversion", "client": "Silver Oak Remodeling" },
+      { "amount": "$45,000", "desc": "Kitchen + Bath Combo Remodel", "client": "Renovate Right Co." },
+      { "amount": "$9,800", "desc": "Guest Bath Remodel — Tile & Vanity Upgrade", "client": "Coastal Bath Works" },
+      { "amount": "$18,750", "desc": "Kitchen Remodel — New Layout & Island", "client": "Bluestone Contracting" },
+      { "amount": "$22,400", "desc": "Primary Bath Remodel — Freestanding Tub & Tile", "client": "Timberline Renovations" },
+      { "amount": "$8,900", "desc": "Powder Room Remodel — Full Renovation", "client": "Crestview Builders" },
+      { "amount": "$38,500", "desc": "Full Kitchen Remodel — High-End Appliance Package", "client": "Northgate Kitchen & Bath" }
+    ]
+  },
+  "stats": {
+    "items": [
+      { "value": 2.5, "prefix": "$", "suffix": "+ Million", "decimals": 1, "label": "In Revenue Generated" },
+      { "value": 24, "prefix": "", "suffix": "", "decimals": 0, "label": "Contractors Helped" },
+      { "value": 25000, "prefix": "$", "suffix": "", "decimals": 0, "label": "Average Job Value" }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "How It Works",
+    "heading": "How we get high quality jobs.",
+    "pillars": [
+      { "title": "We Run Signal-Based Ads.", "desc": "Targeted campaigns built to reach only high-intent homeowners — people actively showing signals they're ready to remodel, not random traffic." },
+      { "title": "We Qualify With Our CBTS System.", "desc": "Every homeowner goes through our 15-point CBTS qualification process, confirming they're financially ready and planning to move forward soon." },
+      { "title": "We Book It. You Close It.", "desc": "We book the in-home estimate directly on your calendar. You just show up, build rapport, and close the job." }
+    ]
+  },
+  "calculator": {
+    "eyebrow": "ROI Calculator",
+    "heading": "See what your appointments could turn into.",
+    "sub": "Adjust the sliders to match your capacity.",
+    "inputsTitle": "Your Numbers",
+    "inputsSubtitle": "Adjust the sliders to match your capacity",
+    "appointmentsLabel": "Appointments Per Month",
+    "appointmentsBenchmark": "Average Client: 20/month",
+    "closeRateLabel": "Average Close Rate",
+    "closeRateBenchmark": "Average: 45%",
+    "disclaimer": "<strong>Built on real performance data</strong> — not optimistic pitch math. Want the exact numbers for your market? That's what the call is for.",
+    "outputsTitle": "Your Projected Revenue",
+    "outputsSubtitle": "Based on your inputs above",
+    "heroLabel": "Projected Monthly Revenue",
+    "jobsLabel": "Closed Jobs / Month",
+    "jobsFormula": "Appointments × Average Close Rate",
+    "closingPrefix": "That's up to",
+    "closingSuffix": "new signed jobs every month. Ready to fill your calendar?",
+    "ctaText": "Get Started — No Contract"
+  },
+  "testimonials": {
+    "eyebrow": "Real Remodeling Contractors. Real Results.",
+    "heading": "What Our Clients Say",
+    "items": [
+      { "quote": "Honestly I was skeptical at first, but these appointments are the real deal. Homeowners already know why I'm there and what they're looking to spend before I even ring the doorbell.", "name": "Mike Delgado", "shop": "Delgado Kitchen & Bath" },
+      { "quote": "We used to burn through leads that went nowhere. Now I just show up, and more often than not I'm walking out with a signed job.", "name": "Rachel Simmons", "shop": "Simmons Home Renovations" },
+      { "quote": "No contract, no retainer — that's what got my attention. Three months in and it's paid for itself many times over.", "name": "Tony Marchetti", "shop": "Marchetti Remodeling Co." }
+    ]
+  },
+  "footer": {
+    "tagline": "We book the estimates. You close the job.",
+    "cta": "Get Started — No Contract",
+    "copyright": "© 2026 Direct Flow Marketing. All rights reserved."
+  },
+  "booking": {
+    "headingLine1": "See If Your Market Is",
+    "headingAccent": "Available",
+    "subhead": "We only work with 1 contractor per market — answer a few quick questions below.",
+    "step1Question": "How many Kitchen/Bath jobs do you do per month?",
+    "step1OptionA": "Less than 5",
+    "step1OptionB": "5-15",
+    "step1OptionC": "15-30",
+    "step1OptionD": "30+",
+    "step2Question": "What's your company name?",
+    "step2Placeholder": "Your company name",
+    "step3Question": "How can we reach you?",
+    "step3NameLabel": "Full name",
+    "step3NamePlaceholder": "Jane Doe",
+    "step3EmailLabel": "Email",
+    "step3EmailPlaceholder": "jane@company.com",
+    "step3PhoneLabel": "Phone",
+    "step3PhonePlaceholder": "(555) 123-4567",
+    "continueText": "Continue",
+    "backText": "Back",
+    "bookText": "Book My Call",
+    "step4Heading": "Pick a time that works for you",
+    "proofEyebrow": "What Contractors Are Saying",
+    "_comment_calendarUrls": "Real Calendly event. Both branches point to the same event for now — give me a second (lower-tier) event link whenever you set one up and I'll split lowVolume out again.",
+    "calendarUrlLowVolume": "https://calendly.com/directflow/directflow-1-on-1",
+    "calendarUrlStandard": "https://calendly.com/directflow/directflow-1-on-1"
+  }
+}

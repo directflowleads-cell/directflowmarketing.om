@@ -1,0 +1,7 @@
+# Local-dev-only artifacts — never deployed, never committed
+leads.json
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
