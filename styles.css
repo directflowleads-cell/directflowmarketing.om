@@ -480,7 +480,7 @@ p { margin: 0; }
 /* ---------------- Stats ---------------- */
 
 .stats {
-  padding: 40px 24px 130px;
+  padding: 40px 24px 70px;
 }
 
 .stats__grid {
@@ -519,14 +519,14 @@ p { margin: 0; }
 /* ---------------- How It Works ---------------- */
 
 .how-it-works {
-  padding: 120px 24px;
+  padding: 90px 24px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
 .section-head {
   max-width: 620px;
-  margin: 0 auto 72px;
+  margin: 0 auto 52px;
   text-align: center;
 }
 
@@ -607,7 +607,7 @@ p { margin: 0; }
 /* ---------------- Calculator ---------------- */
 
 .calculator {
-  padding: 120px 24px;
+  padding: 90px 24px;
   background: var(--bg-raised);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -900,7 +900,7 @@ input[type="range"]::-moz-range-progress {
 /* ---------------- Testimonials ---------------- */
 
 .testimonials {
-  padding: 120px 24px 140px;
+  padding: 90px 24px 100px;
   max-width: var(--container);
   margin: 0 auto;
 }
