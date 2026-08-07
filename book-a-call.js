@@ -15,6 +15,9 @@
   // base URL is active so the embedded widget always matches the site.
   const CALENDLY_STYLE_PARAMS = 'background_color=ffffff&text_color=17181a&primary_color=bf9030';
 
+  // Google Apps Script Web App tied to the leads spreadsheet — appends a row per submission.
+  const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwnYKTtEL03-WXAznVcfp9SsKuhbDzu-BiCrwuiwZgcje3UYAzZYHj48j09g-WDZB8v/exec';
+
   function setStep(n) {
     document.querySelectorAll('.funnel-step').forEach((el) => {
       const s = Number(el.getAttribute('data-step'));
@@ -172,6 +175,19 @@
       if (!res.ok) throw new Error(`status ${res.status}`);
     } catch (err) {
       console.warn('Could not record this lead locally — needs "python3 server.py" running.', err);
+    }
+
+    try {
+      // no-cors: Apps Script doesn't answer CORS preflights, so the response is opaque —
+      // this still delivers the row, we just can't read a result back.
+      await fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.warn('Could not send this lead to the Google Sheet.', err);
     }
   }
 
