@@ -121,31 +121,33 @@
 
   </div>
 
-  <!-- ---- Placeholder social proof — swap these for real contractor testimonials ---- -->
+  <!-- ---- Social proof: real client video/photo testimonials ---- -->
   <section class="funnel-proof" aria-label="What contractors are saying">
     <p class="eyebrow funnel-proof__eyebrow" data-key="booking.proofEyebrow">What Contractors Are Saying</p>
-    <div class="funnel-proof__grid">
-      <blockquote class="funnel-proof__card">
-        <p class="funnel-proof__quote" data-key="testimonials.items.0.quote">"Honestly I was skeptical at first, but these appointments are the real deal."</p>
-        <footer class="funnel-proof__meta">
-          <span class="funnel-proof__name" data-key="testimonials.items.0.name">Mike Delgado</span>
-          <span class="funnel-proof__shop" data-key="testimonials.items.0.shop">Delgado Kitchen & Bath</span>
-        </footer>
-      </blockquote>
-      <blockquote class="funnel-proof__card">
-        <p class="funnel-proof__quote" data-key="testimonials.items.1.quote">"We used to burn through leads that went nowhere. Now I just show up and close."</p>
-        <footer class="funnel-proof__meta">
-          <span class="funnel-proof__name" data-key="testimonials.items.1.name">Rachel Simmons</span>
-          <span class="funnel-proof__shop" data-key="testimonials.items.1.shop">Simmons Home Renovations</span>
-        </footer>
-      </blockquote>
-      <blockquote class="funnel-proof__card">
-        <p class="funnel-proof__quote" data-key="testimonials.items.2.quote">"No contract, no retainer — three months in and it's paid for itself many times over."</p>
-        <footer class="funnel-proof__meta">
-          <span class="funnel-proof__name" data-key="testimonials.items.2.name">Tony Marchetti</span>
-          <span class="funnel-proof__shop" data-key="testimonials.items.2.shop">Marchetti Remodeling Co.</span>
-        </footer>
-      </blockquote>
+
+    <div class="video-carousel" data-video-carousel>
+      <button type="button" class="video-carousel__arrow video-carousel__arrow--prev" data-carousel-prev aria-label="Previous video">‹</button>
+      <div class="video-carousel__track" data-carousel-track>
+        <div class="video-carousel__card"><video src="assets/testimonial-video-1.mov" controls playsinline preload="metadata"></video></div>
+        <div class="video-carousel__card"><video src="assets/testimonial-video-2.mov" controls playsinline preload="metadata"></video></div>
+        <div class="video-carousel__card"><video src="assets/testimonial-video-3.mov" controls playsinline preload="metadata"></video></div>
+        <div class="video-carousel__card"><video src="assets/testimonial-video-4.mov" controls playsinline preload="metadata"></video></div>
+        <div class="video-carousel__card"><video src="assets/testimonial-video-5.mov" controls playsinline preload="metadata"></video></div>
+      </div>
+      <button type="button" class="video-carousel__arrow video-carousel__arrow--next" data-carousel-next aria-label="Next video">›</button>
+    </div>
+
+    <div class="photo-marquee">
+      <div class="photo-marquee__track" data-hmarquee-track>
+        <div class="photo-card"><img src="assets/testimonial-photo-1.png" alt="Slack message from a client praising their results" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-2.png" alt="Slack conversation between clients discussing sales" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-3.png" alt="Slack message about closing a deal" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-4.png" alt="Trustpilot review from a Direct Flow Marketing client" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-5.png" alt="Trustpilot review from a Direct Flow Marketing client" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-6.png" alt="Trustpilot review from a Direct Flow Marketing client" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-7.png" alt="Trustpilot review from a Direct Flow Marketing client" loading="lazy"></div>
+        <div class="photo-card"><img src="assets/testimonial-photo-8.png" alt="Trustpilot review from a Direct Flow Marketing client" loading="lazy"></div>
+      </div>
     </div>
   </section>
 </main>

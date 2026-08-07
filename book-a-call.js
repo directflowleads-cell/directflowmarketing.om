@@ -179,6 +179,82 @@
     return path.split('.').reduce((acc, key) => (acc == null ? undefined : acc[key]), obj);
   }
 
+  function initMarquee() {
+    document.querySelectorAll('[data-hmarquee-track]').forEach((track) => {
+      const originals = Array.from(track.children);
+      originals.forEach((node) => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+    });
+  }
+
+  function initVideoCarousels() {
+    document.querySelectorAll('[data-video-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('[data-carousel-track]');
+      const prevBtn = carousel.querySelector('[data-carousel-prev]');
+      const nextBtn = carousel.querySelector('[data-carousel-next]');
+      if (!track) return;
+
+      function cardStep() {
+        const card = track.querySelector('.video-carousel__card');
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -cardStep() * 2, behavior: 'smooth' });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: cardStep() * 2, behavior: 'smooth' });
+        });
+      }
+
+      let isDown = false;
+      let dragged = false;
+      let startX = 0;
+      let startScroll = 0;
+
+      track.addEventListener('mousedown', (e) => {
+        if (e.target.closest('video')) return;
+        isDown = true;
+        dragged = false;
+        startX = e.pageX;
+        startScroll = track.scrollLeft;
+        track.classList.add('is-dragging');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) dragged = true;
+        track.scrollLeft = startScroll - dx;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove('is-dragging');
+      });
+
+      track.addEventListener(
+        'click',
+        (e) => {
+          if (dragged) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        },
+        true
+      );
+    });
+  }
+
   async function loadContent() {
     try {
       const res = await fetch('content.json', { cache: 'no-store' });
@@ -205,6 +281,8 @@
     initStep3();
     initPhoneFormatting();
     initBackButtons();
+    initMarquee();
+    initVideoCarousels();
     setStep(1);
   })();
 })();

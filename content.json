@@ -66,12 +66,7 @@
   },
   "testimonials": {
     "eyebrow": "Real Remodeling Contractors. Real Results.",
-    "heading": "What Our Clients Say",
-    "items": [
-      { "quote": "Honestly I was skeptical at first, but these appointments are the real deal. Homeowners already know why I'm there and what they're looking to spend before I even ring the doorbell.", "name": "Mike Delgado", "shop": "Delgado Kitchen & Bath" },
-      { "quote": "We used to burn through leads that went nowhere. Now I just show up, and more often than not I'm walking out with a signed job.", "name": "Rachel Simmons", "shop": "Simmons Home Renovations" },
-      { "quote": "No contract, no retainer — that's what got my attention. Three months in and it's paid for itself many times over.", "name": "Tony Marchetti", "shop": "Marchetti Remodeling Co." }
-    ]
+    "heading": "What Our Clients Say"
   },
   "footer": {
     "tagline": "We book the estimates. You close the job.",
