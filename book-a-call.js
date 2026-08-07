@@ -205,6 +205,34 @@
     });
   }
 
+  function initPhotoStripArrows() {
+    document.querySelectorAll('[data-photo-strip]').forEach((wrap) => {
+      const strip = wrap.querySelector('.photo-strip');
+      const track = wrap.querySelector('.photo-strip__track');
+      const prevBtn = wrap.querySelector('[data-photo-prev]');
+      const nextBtn = wrap.querySelector('[data-photo-next]');
+      if (!strip || !track) return;
+
+      function step() {
+        const card = track.querySelector('.photo-card');
+        if (!card) return strip.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          strip.scrollBy({ left: -step() * 2, behavior: 'smooth' });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          strip.scrollBy({ left: step() * 2, behavior: 'smooth' });
+        });
+      }
+    });
+  }
+
   function initVideoCarousels() {
     document.querySelectorAll('[data-video-carousel]').forEach((carousel) => {
       const track = carousel.querySelector('[data-carousel-track]');
@@ -298,6 +326,7 @@
     initBackButtons();
     initVideoCarousels();
     initDragScroll();
+    initPhotoStripArrows();
     setStep(1);
   })();
 })();

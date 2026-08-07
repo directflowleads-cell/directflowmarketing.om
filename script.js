@@ -101,6 +101,36 @@
     });
   }
 
+  /* ---------------- Photo strip: desktop arrow buttons ---------------- */
+
+  function initPhotoStripArrows() {
+    document.querySelectorAll('[data-photo-strip]').forEach((wrap) => {
+      const strip = wrap.querySelector('.photo-strip');
+      const track = wrap.querySelector('.photo-strip__track');
+      const prevBtn = wrap.querySelector('[data-photo-prev]');
+      const nextBtn = wrap.querySelector('[data-photo-next]');
+      if (!strip || !track) return;
+
+      function step() {
+        const card = track.querySelector('.photo-card');
+        if (!card) return strip.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          strip.scrollBy({ left: -step() * 2, behavior: 'smooth' });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          strip.scrollBy({ left: step() * 2, behavior: 'smooth' });
+        });
+      }
+    });
+  }
+
   /* ---------------- Video testimonial carousel: arrows + mouse drag ---------------- */
 
   function initVideoCarousels() {
@@ -440,6 +470,7 @@
     initMarquee();
     initVideoCarousels();
     initDragScroll();
+    initPhotoStripArrows();
     initReveals();
     initStatCounters();
     initCalculator();

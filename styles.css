@@ -995,6 +995,10 @@ input[type="range"]::-moz-range-progress {
 
 /* ---- Photo testimonial strip: user-controlled drag/swipe scroll ---- */
 
+.photo-strip-wrap {
+  position: relative;
+}
+
 .photo-strip {
   max-width: 100%;
   overflow-x: auto;
