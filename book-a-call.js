@@ -179,13 +179,28 @@
     return path.split('.').reduce((acc, key) => (acc == null ? undefined : acc[key]), obj);
   }
 
-  function initMarquee() {
-    document.querySelectorAll('[data-hmarquee-track]').forEach((track) => {
-      const originals = Array.from(track.children);
-      originals.forEach((node) => {
-        const clone = node.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
+  function initDragScroll() {
+    document.querySelectorAll('[data-drag-scroll]').forEach((el) => {
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+
+      el.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX;
+        startScroll = el.scrollLeft;
+        el.classList.add('is-dragging');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        el.scrollLeft = startScroll - (e.pageX - startX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        el.classList.remove('is-dragging');
       });
     });
   }
@@ -281,8 +296,8 @@
     initStep3();
     initPhoneFormatting();
     initBackButtons();
-    initMarquee();
     initVideoCarousels();
+    initDragScroll();
     setStep(1);
   })();
 })();
