@@ -2,7 +2,7 @@
   'use strict';
 
   const TOTAL_STEPS = 4;
-  const state = { step: 1, branch: 'standard' };
+  const state = { step: 1, branch: 'standard', volumeAnswer: '' };
 
   // Fallbacks — overwritten by content.json's booking.calendarUrlLowVolume /
   // booking.calendarUrlStandard once loaded.
@@ -90,6 +90,7 @@
     document.querySelectorAll('.funnel-option').forEach((btn) => {
       btn.addEventListener('click', () => {
         state.branch = btn.getAttribute('data-volume') === 'low' ? 'low' : 'standard';
+        state.volumeAnswer = btn.textContent.trim();
         document.querySelectorAll('.funnel-option').forEach((b) => b.classList.remove('is-selected'));
         btn.classList.add('is-selected');
         setTimeout(() => setStep(2), 150);
@@ -161,6 +162,7 @@
     const payload = {
       timestamp: new Date().toISOString(),
       volumeBranch: state.branch,
+      volumeAnswer: state.volumeAnswer,
       company: document.getElementById('input-company').value.trim(),
       name: document.getElementById('input-name').value.trim(),
       email: document.getElementById('input-email').value.trim(),
@@ -189,6 +191,25 @@
     } catch (err) {
       console.warn('Could not send this lead to the Google Sheet.', err);
     }
+  }
+
+  // Calendly's embed posts this message to the parent window the instant someone actually
+  // finishes scheduling — no Calendly API/account access needed, it's a free embed feature.
+  function initCalendlyBookedTracking() {
+    window.addEventListener('message', (e) => {
+      if (e.origin !== 'https://calendly.com') return;
+      if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
+
+      const email = document.getElementById('input-email').value.trim();
+      if (!email) return;
+
+      fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ type: 'booked', email }),
+      }).catch((err) => console.warn('Could not mark this lead as booked.', err));
+    });
   }
 
   function getPath(obj, path) {
@@ -343,6 +364,7 @@
     initVideoCarousels();
     initDragScroll();
     initPhotoStripArrows();
+    initCalendlyBookedTracking();
     setStep(1);
   })();
 })();
