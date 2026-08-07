@@ -186,12 +186,12 @@ p { margin: 0; }
 }
 
 .logo__image {
-  height: 52px;
+  height: 72px;
   width: auto;
 }
 
 .logo--footer .logo__image {
-  height: 68px;
+  height: 92px;
 }
 
 .nav__links {
