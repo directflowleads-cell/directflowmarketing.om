@@ -280,6 +280,12 @@
   margin-bottom: 24px;
 }
 
+.funnel-bottom-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
 @media (max-width: 560px) {
   .funnel-card {
     padding: 32px 22px;
